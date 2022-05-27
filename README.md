@@ -1,1 +1,1 @@
-# biologist
+# Natural Product Knowledge Extraction Benchmark
