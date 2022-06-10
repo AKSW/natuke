@@ -1,5 +1,5 @@
 # Natural Product Knowledge Extraction Benchmark
-NaPKE source code for running and evaluating experiments
+NatUKE source code for running and evaluating experiments
 
 ## GraphEmbeddings
 GraphEmbeddings submodule based on https://github.com/shenweichen/GraphEmbedding but the used algorithms works with tf 2.x
