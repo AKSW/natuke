@@ -4,12 +4,12 @@ import time
 from ge import DeepWalk
 from ge import Node2Vec
 
-from napke_utils import metapath2vec
-from napke_utils import disturbed_hin
-from napke_utils import regularization
-from napke_utils import restore_hin
-from napke_utils import embedding_graph
-from napke_utils import true_restore
+from natuke_utils import metapath2vec
+from natuke_utils import disturbed_hin
+from natuke_utils import regularization
+from natuke_utils import restore_hin
+from natuke_utils import embedding_graph
+from natuke_utils import true_restore
 
 path = 'path-to-data-repository'
 file_name = 'knn_results'

@@ -1,8 +1,8 @@
 import pandas as pd
 from ast import literal_eval
 
-from napke_utils import hits_at
-from napke_utils import mrr
+from natuke_utils import hits_at
+from natuke_utils import mrr
 
 path = 'path-to-data-repository'
 file_name = "knn_results"
