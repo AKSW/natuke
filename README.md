@@ -62,11 +62,11 @@ The data set used for evaluation as well as training was generated from hundreds
 
 We compare four different unsupervised graph embedding methods for our knowledge extraction task: (1) DeepWalk is an unsupervised graph embedding method that uses random walks to sample a training data set for a skipgram architecture; (2) Node2Vec extends DeepWalk method to allow more control on the random walks; (3) Metapath2Vec is another extension from DeepWalk that transforms the random walks into meta-path based walks; and Embedding Propagation on Heterogeneous Networks (EPHEN) is an embedding propagation method that uses a regularization function to distribute an initial BERT embedding on a KG, meaning that it considers both text and structured data in an unsupervised scenario.
 
-### Results
+## Results
 
 We use NubbeDB ontology (https://github.com/AKSW/dinobbio/tree/main/ontology) for property prediction. We extract five different properties: (1) name, (2) bioactivity, (3) specie, (4) collection site, and (5) isolation type. We use different values of k proportionally to the property-value prediction difficulty. For instance, it is significantly more challenging to predict the right natural product name than it is to predict the isolation type because there are considerable fewer exemplars in the traning data set for natural product than there is for isolation type. For that we evaluated with different k from 1 to 50, considering values multiples of 5.
 
-#### Graphs
+### Graphs
 
 The graphs show the results from experiments extracting five different natural product properties from biochemical academic papers. Each graph presents different property extraction and values of k to the hits@k metric: (1) name, k = 50; (2) bioactivity, k = 5; (3) specie, k = 50; (4) collection site, k = 20; and (5) isolation type, k = 1. The final k value for each extraction is defined either when a score higher than 0.50 is achieved at any evaluation stage or the upper limit of k = 50. The final k value for each extraction is defined either when a score higher than 0.50 is achieved at any evaluation stage or the upper limit of k = 50.
 
@@ -90,7 +90,7 @@ The graphs show the results from experiments extracting five different natural p
 
 ![extraction_type](https://github.com/AKSW/natuke/blob/main/images/hits_execution_times_doi_collectionType.png?raw=true)
 
-#### Tables 
+### Tables 
 
 Table 1 shows the results from experiments extracting five different natural product properties from biochemical academic papers. They are presented on different values of k to the hits@k metric: (1) name, k = 50; (2) bioactivity, k = 5; (3) specie, k = 50; (4) collection site, k = 20; and (5) isolation type, k = 1. The final k value for each extraction is defined either when a score higher than 0.50 is achieved at any evaluation stage or the upper limit of k = 50.
 
