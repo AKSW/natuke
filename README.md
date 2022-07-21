@@ -56,7 +56,7 @@ In order to simulate a scenario whereas new training data is constantly added to
 
 ### Data
 
-The data set used for evaluation as well as training was generated from hundreds of peer reviewed scientific articles where the information on more than 2,000 natural products were extracted. The data set was built manually by chemistry specialists that read the articles annotating four relevant properties associated with each natural product discussed in the paper: (I) metabolic class and (II) bioactivity, (III) species from where natural products were extracted, and (IV) collection site of this species.
+The data set used for evaluation as well as training was generated from hundreds of peer reviewed scientific articles where the information on more than 2,000 natural products were extracted. The data set was built manually by chemistry specialists that read the articles annotating four relevant properties associated with each natural product discussed in the paper: (I) metabolic class and (II) bioactivity, (III) species from where natural products were extracted, and (IV) collection site of this species. The dataset can be found here: (http://nubbe.aksw.org)[http://nubbe.aksw.org]
 
 ### Models
 
