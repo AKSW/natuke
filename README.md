@@ -61,7 +61,7 @@ The data set used for evaluation as well as training was generated from hundreds
 The dataset can be found in different formats:
 
 - Linked Data: [http://nubbe.aksw.org](http://nubbe.aksw.org)
-- spreadsheet: [https://tinyurl.com/2p99u3jv](https://tinyurl.com/2p99u3jv)
+- Spreadsheet: [https://tinyurl.com/2p99u3jv](https://tinyurl.com/2p99u3jv)
 
 ### Models
 
