@@ -63,6 +63,40 @@ The dataset can be found in different formats:
 - Linked Data: [http://nubbe.aksw.org](http://nubbe.aksw.org)
 - Spreadsheet: [https://tinyurl.com/2p99u3jv](https://tinyurl.com/2p99u3jv)
 
+For the benchmark data was extracted from the linked data endpoint and then joined with the spreadsheet for missing values, with the following SPARQL query:
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nubbe: <http://nubbe.db/>
+PREFIX nubbeprop: <http://nubbe.db/property/>
+PREFIX nubbeclass: <http://nubbe.db/class/>
+
+SELECT DISTINCT 
+	?doi ?bioActivity ?collectionSpecie ?collectionSite ?collectionType ?molType ?molecularMass ?monoisotropicMass ?cLogP ?tpsa
+	?numberOfLipinskiViolations ?numberOfH_bondAcceptors ?numberOfH_bondDonors ?numberOfRotableBonds ?molecularVolume ?smile
+WHERE {
+  ?data nubbeprop:doi							            ?doi						            .
+ OPTIONAL {
+  ?data nubbeprop:biologicalActivity			    ?bioActivity				        ;
+        nubbeprop:collectionSpecie				    ?collectionSpecie			      ;
+        nubbeprop:collectionSite				      ?collectionSite				      ;
+        nubbeprop:collectionType				      ?collectionType				      ;
+        rdf:type								              ?molType					          ;
+        nubbeprop:molecularMass					      ?molecularMass				      ;
+        nubbeprop:monoisotropicMass				    ?monoisotropicMass			    ;
+        nubbeprop:cLogP							          ?cLogP						          ;
+        nubbeprop:tpsa							          ?tpsa						            ;
+        nubbeprop:numberOfLipinskiViolations	?numberOfLipinskiViolations	;
+        nubbeprop:numberOfH-bondAcceptors		  ?numberOfH_bondAcceptors	  ;
+        nubbeprop:numberOfH-bondDonors			  ?numberOfH_bondDonors		    ;
+        nubbeprop:numberOfRotableBonds			  ?numberOfRotableBonds		    ;
+        nubbeprop:molecularVolume				      ?molecularVolume			      ;
+        nubbeprop:smile							          ?smile						          .
+  }
+}
+```
+
 ### Models
 
 We compare four different unsupervised graph embedding methods for our knowledge extraction task: (1) DeepWalk is an unsupervised graph embedding method that uses random walks to sample a training data set for a skipgram architecture; (2) Node2Vec extends DeepWalk method to allow more control on the random walks; (3) Metapath2Vec is another extension from DeepWalk that transforms the random walks into meta-path based walks; and Embedding Propagation on Heterogeneous Networks (EPHEN) is an embedding propagation method that uses a regularization function to distribute an initial BERT embedding on a KG, meaning that it considers both text and structured data in an unsupervised scenario.
