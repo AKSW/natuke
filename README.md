@@ -73,26 +73,26 @@ PREFIX nubbeprop: <http://nubbe.db/property/>
 PREFIX nubbeclass: <http://nubbe.db/class/>
 
 SELECT DISTINCT 
-	?doi ?bioActivity ?collectionSpecie ?collectionSite ?collectionType ?molType ?molecularMass ?monoisotropicMass ?cLogP ?tpsa
-	?numberOfLipinskiViolations ?numberOfH_bondAcceptors ?numberOfH_bondDonors ?numberOfRotableBonds ?molecularVolume ?smile
+  ?doi ?bioActivity ?collectionSpecie ?collectionSite ?collectionType ?molType ?molecularMass ?monoisotropicMass ?cLogP ?tpsa
+  ?numberOfLipinskiViolations ?numberOfH_bondAcceptors ?numberOfH_bondDonors ?numberOfRotableBonds ?molecularVolume ?smile
 WHERE {
-  ?data nubbeprop:doi							            ?doi						            .
- OPTIONAL {
-  ?data nubbeprop:biologicalActivity			    ?bioActivity				        ;
-        nubbeprop:collectionSpecie				    ?collectionSpecie			      ;
-        nubbeprop:collectionSite				      ?collectionSite				      ;
-        nubbeprop:collectionType				      ?collectionType				      ;
-        rdf:type								              ?molType					          ;
-        nubbeprop:molecularMass					      ?molecularMass				      ;
-        nubbeprop:monoisotropicMass				    ?monoisotropicMass			    ;
-        nubbeprop:cLogP							          ?cLogP						          ;
-        nubbeprop:tpsa							          ?tpsa						            ;
-        nubbeprop:numberOfLipinskiViolations	?numberOfLipinskiViolations	;
-        nubbeprop:numberOfH-bondAcceptors		  ?numberOfH_bondAcceptors	  ;
-        nubbeprop:numberOfH-bondDonors			  ?numberOfH_bondDonors		    ;
-        nubbeprop:numberOfRotableBonds			  ?numberOfRotableBonds		    ;
-        nubbeprop:molecularVolume				      ?molecularVolume			      ;
-        nubbeprop:smile							          ?smile						          .
+  ?data     nubbeprop:doi                           ?doi                          .
+  OPTIONAL {
+    ?data   nubbeprop:biologicalActivity            ?bioActivity                  ;
+            nubbeprop:collectionSpecie              ?collectionSpecie             ;
+            nubbeprop:collectionSite                ?collectionSite               ;
+            nubbeprop:collectionType                ?collectionType               ;
+            rdf:type                                ?molType                      ;
+            nubbeprop:molecularMass                 ?molecularMass                ;
+            nubbeprop:monoisotropicMass             ?monoisotropicMass            ;
+            nubbeprop:cLogP                         ?cLogP                        ;
+            nubbeprop:tpsa                          ?tpsa                         ;
+            nubbeprop:numberOfLipinskiViolations    ?numberOfLipinskiViolations   ;
+            nubbeprop:numberOfH-bondAcceptors       ?numberOfH_bondAcceptors      ;
+            nubbeprop:numberOfH-bondDonors          ?numberOfH_bondDonors         ;
+            nubbeprop:numberOfRotableBonds          ?numberOfRotableBonds         ;
+            nubbeprop:molecularVolume               ?molecularVolume              ;
+            nubbeprop:smile                         ?smile                        .
   }
 }
 ```
