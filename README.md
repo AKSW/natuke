@@ -73,8 +73,10 @@ PREFIX nubbeprop: <http://nubbe.db/property/>
 PREFIX nubbeclass: <http://nubbe.db/class/>
 
 SELECT DISTINCT 
-  ?doi ?bioActivity ?collectionSpecie ?collectionSite ?collectionType ?molType ?molecularMass ?monoisotropicMass ?cLogP ?tpsa
-  ?numberOfLipinskiViolations ?numberOfH_bondAcceptors ?numberOfH_bondDonors ?numberOfRotableBonds ?molecularVolume ?smile
+  ?doi ?bioActivity ?collectionSpecie ?collectionSite ?collectionType ?molType 
+  ?molecularMass ?monoisotropicMass ?cLogP ?tpsa?numberOfLipinskiViolations 
+  ?numberOfH_bondAcceptors ?numberOfH_bondDonors ?numberOfRotableBonds 
+  ?molecularVolume ?smile
 WHERE {
   ?data     nubbeprop:doi                           ?doi                          .
   OPTIONAL {
