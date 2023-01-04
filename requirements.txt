@@ -12,7 +12,6 @@ filelock==3.6.0
 flatbuffers==2.0
 fonttools==4.33.3
 gast==0.5.3
-ge==0.0.0
 gensim==3.6.0
 google-auth==2.6.6
 google-auth-oauthlib==0.4.6
