@@ -1,5 +1,21 @@
 # NatUKE: Natural Product Knowledge Extraction Benchmark
 
+```
+@inproceedings{icsc/natuke/2023,
+  title = {NatUKE: A Benchmark for Natural Product
+    Knowledge Extraction from Academic Literature},
+  author = {Paulo Viviurka do Carmo,
+    Edgard Marx,
+    Ricardo Marcacini,
+    Marilia Valli,
+    João Victor Silva e Silva,
+    Alan Pilon},
+  booktitle = {17th IEEE International Conference on Semantic Computing},
+  year = {2023},
+  publisher = {IEEE}
+}
+```
+
 Welcome to NatUKE! Here we present usability explanations an explanation of our benchmark and some results. We also provide a preview of the data used in the experiments and the access to said data.
 
 - [Usability](https://github.com/aksw/natuke#usability)
