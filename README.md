@@ -68,6 +68,10 @@ For a better user experience we recommend setting up two virtual environments fo
 * ```requirements.txt``` for all the codes, except ```topic_distribution.ipynb```; ```topic_generation.ipynb```; and ```hin_generation.ipynb```;
 * ```requirements_topic.txt``` for ```topic_distribution.ipynb```; ```topic_generation.ipynb```; and ```hin_generation.ipynb``` (BERTopic requires a different numpy version for numba).
 
+All experiments were tested with a conda virtual environment of Python 3.8. With conda installed the virtual envs should be created with:
+```
+conda create --name [name] python=3.8
+```
 
 ## Benchmark
 
