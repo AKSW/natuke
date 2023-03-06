@@ -46,7 +46,18 @@ Here we explain all the source code in the repository and the order in which to 
 * ```natuke_utils.py```: contains the source for the: methods; split algorithms; similar entity prediction; and metrics.
 * ```exploration.ipynb```: used to explore data, as for the quantities of each property.
 
-### Submodules
+### Instalation and running
+
+All experiments were tested with a conda virtual environment of Python 3.8. With conda installed the virtual envs should be created with:
+```
+conda create --name [name] python=3.8
+```
+Install the requirements:
+```
+cd natuke
+conda activate [name]
+pip install -r requirements.txt
+```
 
 **GraphEmbeddings**
 
@@ -58,6 +69,9 @@ cd GraphEmbeddings
 python setup.py install
 ```
 
+To run the benchmark execute ```knn_dynamic_benchmark.py``` after adding the repository with the data and adding the kg name in the code. Other parameters can also be changed within the code.
+You can access a full KG and splits at: https://drive.google.com/drive/folders/1NXLQQsIXe0hz32KSOeSG1PCAzFLHoSGh?usp=sharing
+
 **Metapath2Vec**
 
 metapath2vec submodule based on: https://stellargraph.readthedocs.io/en/stable/demos/link-prediction/metapath2vec-link-prediction.html
@@ -67,11 +81,6 @@ metapath2vec submodule based on: https://stellargraph.readthedocs.io/en/stable/d
 For a better user experience we recommend setting up two virtual environments for running biologist: 
 * ```requirements.txt``` for all the codes, except ```topic_distribution.ipynb```; ```topic_generation.ipynb```; and ```hin_generation.ipynb```;
 * ```requirements_topic.txt``` for ```topic_distribution.ipynb```; ```topic_generation.ipynb```; and ```hin_generation.ipynb``` (BERTopic requires a different numpy version for numba).
-
-All experiments were tested with a conda virtual environment of Python 3.8. With conda installed the virtual envs should be created with:
-```
-conda create --name [name] python=3.8
-```
 
 ## Benchmark
 
