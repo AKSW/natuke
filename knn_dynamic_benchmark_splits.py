@@ -3,6 +3,7 @@ import time
 import pandas as pd
 import multiprocess
 from tqdm import tqdm
+from copy import deepcopy
 
 from ge import DeepWalk
 from ge import Node2Vec
@@ -76,11 +77,29 @@ def load_graph_train_test(iteration, edge_group, evaluation_stage):
     test = pd.read_csv(f'{path}splits/test_{edge_group}_{iteration}_{evaluation_stage}.csv')
     return G_found, train, test
 
-def execution(algorithm, split, iteration, edge_group, evaluation_stages):    
+# if a new graph is generated this function can split it according to the splits file
+def new_graph_splitter(G, test, extra_cut_from='nubbe', node_from_feature='node_from', type_feature='edge_group'):
+    G_disturbed = deepcopy(G)
+    for _, row in test.iterrows():
+        neighbors_list = list(G_disturbed.neighbors(row['node']))
+        neighbors_hidden = []
+        for neighbor in neighbors_list:
+            if G_disturbed.nodes[neighbor][node_from_feature] == extra_cut_from:
+                neighbors_hidden.append({'neighbor': neighbor, 'edge_group': G_disturbed[row['node']][neighbor][type_feature]})
+                G_disturbed.remove_edge(row['node'],neighbor)
+    return G_disturbed
+
+def execution(algorithm, split, iteration, edge_group, evaluation_stages):
+    # if a new graph is generated load it here
+    # with open(f"{path}/your_graph_name.gpickle", "rb") as fh:
+    #     G = pickle.load(fh)
+
     if algorithm == 'deep_walk':
         for evaluation_stage in evaluation_stages:
             print(f'Evaluation for {algorithm},{split},{iteration},{edge_group},{evaluation_stage}')
             G_found, train, test = load_graph_train_test(iteration, edge_group, evaluation_stage)
+            # if new graph
+            # G_found = new_graph_splitter(G, test)
             start_time = time.time()
             model_deep_walk = DeepWalk(G_found, walk_length=10, num_walks=80, workers=1)
             model_deep_walk.train(window_size=5, iter=3, embed_size=512)
@@ -95,6 +114,8 @@ def execution(algorithm, split, iteration, edge_group, evaluation_stages):
         for evaluation_stage in evaluation_stages:
             print(f'Evaluation for {algorithm},{split},{iteration},{edge_group},{evaluation_stage}')
             G_found, train, test = load_graph_train_test(iteration, edge_group, evaluation_stage)
+            # if new graph
+            # G_found = new_graph_splitter(G, test)
             start_time = time.time()
             model_node2vec = Node2Vec(G_found, walk_length = 10, num_walks = 80, p = 0.5, q = 1, workers = 1)
             model_node2vec.train(window_size=5,iter=3,embed_size=512)
@@ -109,6 +130,8 @@ def execution(algorithm, split, iteration, edge_group, evaluation_stages):
         for evaluation_stage in evaluation_stages:
             print(f'Evaluation for {algorithm},{split},{iteration},{edge_group},{evaluation_stage}')
             G_found, train, test = load_graph_train_test(iteration, edge_group, evaluation_stage)
+            # if new graph
+            # G_found = new_graph_splitter(G, test)
             start_time = time.time()
             embeddings_metapath2vec = metapath2vec(G_found, dimensions=512)
             G_found = embedding_graph(G_found, embeddings_metapath2vec)
@@ -122,6 +145,8 @@ def execution(algorithm, split, iteration, edge_group, evaluation_stages):
         for evaluation_stage in evaluation_stages:
             print(f'Evaluation for {algorithm},{split},{iteration},{edge_group},{evaluation_stage}')
             G_found, train, test = load_graph_train_test(iteration, edge_group, evaluation_stage)
+            # if new graph
+            # G_found = new_graph_splitter(G, test)
             start_time = time.time()
             G_found = regularization(G_found, iterations=iterations, mi=0.85)
             restored_df = restore_hin_split(G_found, test, edge_group)
@@ -132,7 +157,8 @@ def execution(algorithm, split, iteration, edge_group, evaluation_stages):
 
 
 if __name__ == '__main__':
-    splits = [0.8]
+    # just to be compatible with execution time codes
+    split = 0.8
     #edge_groups = ['doi_name', 'doi_bioActivity', 'doi_collectionSpecie', 'doi_collectionSite', 'doi_collectionType']
     edge_groups = ['doi_bioActivity']
     #algorithms = ['deep_walk', 'node2vec', 'metapath2vec', 'regularization']
@@ -140,8 +166,7 @@ if __name__ == '__main__':
     evaluation_stages = ['1st', '2nd', '3rd', '4th']
 
     # regularization
-    for split in splits:
-        for iteration in range(10):
-            for edge_group in edge_groups:
-                for algorithm in algorithms: 
-                    execution(algorithm, split, iteration, edge_group, evaluation_stages)
+    for iteration in range(10):
+        for edge_group in edge_groups:
+            for algorithm in algorithms: 
+                execution(algorithm, split, iteration, edge_group, evaluation_stages)
