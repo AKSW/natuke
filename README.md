@@ -503,7 +503,7 @@ Results table for extracting: chemical compound (C), bioactivity (B), specie (S)
 
 ## License
 
-The code and experiments are available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The code and experiments are available as open source under the terms of the [Apache 2.0 License](https://github.com/AKSW/natuke/blob/main/LICENSE).
 
 The dataset used for training and benchmark are available under the license [Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 *Which allows the use of the data only on its current form.*
