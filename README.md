@@ -31,7 +31,7 @@ NatUKE source code explanation for understanding, running and evaluating experim
 
 ### Source code breakdown
 
-**this source code breakdown is also the regular flow of execution from natuke**
+**(this source code breakdown is also the regular flow of execution from natuke)**
 
 Here we explain all the source code in the repository and the order in which to execute them:
 1. ```clean_pdfs.ipynb```: load pdfs considering database and prepare two dataframes to be used further;
