@@ -1,5 +1,17 @@
 # NatUKE: Natural Product Knowledge Extraction Benchmark
 
+Welcome to NatUKE! Here we present usability explanations an explanation of our benchmark and some results. We also provide a preview of the data used in the experiments and the access to said data.
+
+- [Usability](https://github.com/aksw/natuke#usability)
+- [Submodules](https://github.com/aksw/natuke#submodules)
+- [Benchmark](https://github.com/aksw/natuke#benchmark)
+- [Data](https://github.com/aksw/natuke#data)
+- [Models](https://github.com/aksw/natuke#models)
+- [Results](https://github.com/aksw/natuke#results)
+- [License](https://github.com/aksw/natuke#license)
+- [Wiki](https://github.com/aksw/natuke#wiki)
+
+## how to cite
 ```
 @INPROCEEDINGS{icsc2023natuke,
   author={Do Carmo, Paulo Viviurka and Marx, Edgard and Marcacini, Ricardo and Valli, Marilia and Silva e Silva, João Victor and Pilon, Alan},
@@ -12,17 +24,6 @@
   doi={10.1109/ICSC56153.2023.00039}
 }
 ```
-
-Welcome to NatUKE! Here we present usability explanations an explanation of our benchmark and some results. We also provide a preview of the data used in the experiments and the access to said data.
-
-- [Usability](https://github.com/aksw/natuke#usability)
-- [Submodules](https://github.com/aksw/natuke#submodules)
-- [Benchmark](https://github.com/aksw/natuke#benchmark)
-- [Data](https://github.com/aksw/natuke#data)
-- [Models](https://github.com/aksw/natuke#models)
-- [Results](https://github.com/aksw/natuke#results)
-- [License](https://github.com/aksw/natuke#license)
-- [Wiki](https://github.com/aksw/natuke#wiki)
 
 ## Usability
 
