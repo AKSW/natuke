@@ -306,6 +306,44 @@ def metapath2vec(graph, dimensions = 512, num_walks = 1, walk_length = 100, cont
         return _embeddings
     return get_embeddings(model, graph)
 
+#BFS2Vec
+
+from stellargraph.data import SampledBreadthFirstWalk
+
+def BFS2vec(graph, n_size=[5,5,5], n=5, seed=125, weighted=False, dimensions = 512,    context_window_size = 10, 
+                           num_iter=1, workers = 1, node_type='group', edge_type='edge_group',
+                           ):
+    s_graph = StellarGraph.from_networkx(graph, node_type_attr=node_type, edge_type_attr=edge_type)
+    rw = SampledBreadthFirstWalk(s_graph)
+    walks = rw.run(s_graph.nodes(), n_size=n_size, n=n, seed=seed, weighted=weighted)
+ 
+    print(f"Number of random walks: {len(walks)}")
+
+    model = Word2Vec(
+        walks,
+        size=dimensions,
+        window=context_window_size,
+        min_count=0,
+        sg=1,
+        workers=workers,
+        iter=num_iter,
+    )
+
+    def get_embeddings(model, graph):
+        if model is None:
+            print("model not train")
+            return {}
+
+        _embeddings = {}
+        for word in graph.nodes():
+            try:
+                _embeddings[word] = model.wv[word]
+            except:
+                _embeddings[word] = np.zeros(dimensions)
+
+        return _embeddings
+    return get_embeddings(model, graph)
+
 """
 *************************************
 *                                   *
