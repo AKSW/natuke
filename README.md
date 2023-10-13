@@ -99,7 +99,7 @@ The data set used for evaluation as well as training was generated from hundreds
 
 The dataset can be found in different formats:
 
-- Linked Data: [http://nubbe.aksw.org](http://nubbe.aksw.org)
+- Linked Data: [http://nubbekg.aksw.org](http://nubbekg.aksw.org)
 - Spreadsheet: [https://tinyurl.com/2p99u3jv](https://tinyurl.com/2p99u3jv)
 
 For the benchmark data was extracted from the linked data endpoint and then joined with the spreadsheet for missing values, with the following SPARQL query:
