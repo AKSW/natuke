@@ -83,6 +83,29 @@ For a better user experience we recommend setting up two virtual environments fo
 * ```requirements.txt``` for all the codes, except ```topic_distribution.ipynb```; ```topic_generation.ipynb```; and ```hin_generation.ipynb```;
 * ```requirements_topic.txt``` for ```topic_distribution.ipynb```; ```topic_generation.ipynb```; and ```hin_generation.ipynb``` (BERTopic requires a different numpy version for numba).
 
+### Preparing new files for performance evaluation
+
+The files must follow a naming convention, for example `knn_results_deep_walk_0.8_doi_bioActivity_0_2nd.csv`: 
+* `knn_results` is the name of the experiments batch used in natuke;
+* `deep_walk` is the name of the algorithm;
+* `0.8` represents the maximum train/test splits percentage in the evaluation stages;
+* `doi_bioActivity` is the edge_type restored for evaluation;
+* `0` is the random sampling for the splits;
+* and `2nd` is the evaluation_stage.
+
+All these parameters can be changed as needed in this portion of the `dynamic_benchmark_evaluation.py`
+```
+path = 'path-to-data-repository'
+file_name = "knn_results"
+splits = [0.8]
+#edge_groups = ['doi_name', 'doi_bioActivity', 'doi_collectionSpecie', 'doi_collectionSite', 'doi_collectionType']
+edge_group = 'doi_collectionType'
+#algorithms = ['bert', 'deep_walk', 'node2vec', 'metapath2vec', 'regularization']
+algorithms = ['deep_walk', 'node2vec', 'metapath2vec', 'regularization']
+k_at = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+dynamic_stages = ['1st', '2nd', '3rd', '4th']
+```
+
 ## Benchmark
 
 The problem of knowledge extraction from unstructured data sources is that authors may use different words or methods to describe the same thing. Using rule-based information extraction algorithms is therefore very challenging. In this work, we propose a benchmark and evaluate different ML embeddings to the task of unsupervised knowledge extraction. We design the evaluation as such that we measure the performance of each approach when inserting randomly selected portions of a crowd-sourced training data set. 
