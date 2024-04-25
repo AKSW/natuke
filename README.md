@@ -18,8 +18,6 @@ Welcome to NatUKE! Here we present usability explanations an explanation of our 
   booktitle={2023 IEEE 17th International Conference on Semantic Computing (ICSC)}, 
   title={NatUKE: A Benchmark for Natural Product Knowledge Extraction from Academic Literature}, 
   year={2023},
-  volume={},
-  number={},
   pages={199-203},
   doi={10.1109/ICSC56153.2023.00039}
 }
